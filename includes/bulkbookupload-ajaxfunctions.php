@@ -236,14 +236,14 @@ function wpbooklist_bulkbookupload_action_callback(){
 	$book_array = array(
 		'amazon_auth_yes' => $amazon_auth_yes,
 		'library' => $library,
-		'use_amazon_yes' => true,
+		'use_amazon_yes' => 'true',
 		'isbn' => $isbn,
 		'page_yes' => $page_yes,
 		'post_yes' => $post_yes,
 		'woocommerce' => $woocommerce
 	);
 
-	require_once(CLASS_BOOK_DIR.'class-book.php');
+	require_once(CLASS_BOOK_DIR.'class-wpbooklist-book.php');
 	$book_class = new WPBookList_Book('addbulk', $book_array, null);
 	$insert_result = $book_class->add_result;
 
