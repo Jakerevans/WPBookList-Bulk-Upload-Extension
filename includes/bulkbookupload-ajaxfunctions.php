@@ -101,12 +101,17 @@ function wpbooklist_bulkbookupload_action_javascript() {
 						'isbn':isbnArray[isbnIterator]
 					};
 
+					console.log('Data being sent to the server');
+					console.log(data);
+
 					var request = $.ajax({
 					    url: ajaxurl,
 					    type: "POST",
 					    data:data,
 					    timeout: 0,
 					    success: function(response) {
+
+					    	console.log(response)
 					    	response = response.split('---sep---sep---');
 /*
 					    	var apicallreport = response[2];
@@ -119,7 +124,8 @@ function wpbooklist_bulkbookupload_action_javascript() {
 
 					    	var amazonapifailcount = response[4];
 					    	console.log('The Amazon Fail Count was: '+amazonapifailcount);
-*/
+*///---sep---sep---9780007174805
+
 					    	//console.log(response);
 					    	// If the ajax call was succesful but the book wasn't found or some other error retreiving the book information occurred (probably due to a bad ISBN number)
 					    	if(response[0] == '' || response[0] == 'undefined' || response[0] == undefined){
@@ -234,7 +240,7 @@ function wpbooklist_bulkbookupload_action_callback(){
 	}
 
 	$book_array = array(
-		'amazon_auth_yes' => $amazon_auth_yes,
+		'amazonauth' => $amazon_auth_yes,
 		'library' => $library,
 		'use_amazon_yes' => 'true',
 		'isbn' => $isbn,
@@ -253,12 +259,14 @@ function wpbooklist_bulkbookupload_action_callback(){
   		$id_result = $wpdb->get_var("SELECT MAX(ID) from $library");
   		$row = $wpdb->get_row($wpdb->prepare("SELECT * FROM $library WHERE ID = %d", $id_result));
 
+  		//error_log(print_r($book_class,true));
 
-  		echo $book_class->title.'---sep---sep---'.$book_class->isbn;
 
-/*
+  		//echo $book_class->title.'---sep---sep---'.$book_class->isbn;
+
+
   		echo $book_class->title.'---sep---sep---'.$book_class->isbn.'---sep---sep---'.$book_class->apireport.'---sep---sep---'.json_encode($book_class->whichapifound).'---sep---sep---'.$book_class->apiamazonfailcount;
-*/
+
 
 	}
 	wp_die();
