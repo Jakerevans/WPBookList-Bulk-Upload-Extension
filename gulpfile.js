@@ -116,7 +116,7 @@ gulp.task('copymainfile', function () {
 
 gulp.task('zip', function () {
     return gulp.src('../wpbooklist-bulkbookupload_dist/WPBookList-BulkBookUpload-Distribution/**')
-        .pipe(zip('wpbooklist-bulkbook.zip'))
+        .pipe(zip('wpbooklist-bulkbookupload.zip'))
         .pipe(gulp.dest('../wpbooklist-bulkbookupload_dist/WPBookList-BulkBookUpload-Distribution'));
 });
 
@@ -125,7 +125,7 @@ gulp.task( 'cleanzip', function(cb) {
 });
 
 gulp.task('clean', function(cb) {
-    del(['../wpbooklist-bulkbookupload_dist/WPBookList-BulkBookUpload-Distribution/**/*', '!../wpbooklist-bulkbookupload_dist/WPBookList-BulkBookUpload-Distribution/wpbooklist.zip'], {force: true}, cb);
+    del(['../wpbooklist-bulkbookupload_dist/WPBookList-BulkBookUpload-Distribution/**/*', '!../wpbooklist-bulkbookupload_dist/WPBookList-BulkBookUpload-Distribution/wpbooklist-bulkbookupload.zip'], {force: true}, cb);
 });
 
 // Task to watch for changes in our file sources

@@ -48,9 +48,13 @@
 
 #wpbooklist-bulkbookupload-title-response{
 	height:0px;
-	opacity:0px;
-	overflow-y:scroll;
-	width:107%;
+    opacity:0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    width: 95%;
+    left: 3.3%;
+    position: relative;
 }
 
 #wpbooklist-spinner-bulkbookupload{
@@ -65,6 +69,6 @@
 }
 
 #wpbooklist-bulkbookupload-div-for-hiding-scroll{
-	width:95%;
+    margin-top:40px;
 	overflow:hidden;
 }
