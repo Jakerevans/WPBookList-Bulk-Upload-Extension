@@ -89,6 +89,18 @@ function wpbooklist_bulkbookupload_action_javascript() {
 		  		//for (var i = isbnArray.length - 1; i >= 0; i--) {
 		  		(function wpbooklist_bulk_add_book_worker() {
 		  			isbnArray[isbnIterator] = isbnArray[isbnIterator].replace(/-/g,'');
+
+		  			if ( 'true' === createPage || true === createPage ) {
+		  				createPage = 'Yes';
+		  			}
+
+		  			if ( 'true' === createPost || true === createPost ) {
+		  				createPost = 'Yes';
+		  			}
+
+		  			if ( 'true' === woocommerce || true === woocommerce ) {
+		  				woocommerce = 'Yes';
+		  			}
 		  			
 		  			var data = {
 						'action': 'wpbooklist_bulkbookupload_action',
