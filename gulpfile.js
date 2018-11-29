@@ -114,6 +114,10 @@ gulp.task('copymainfile', function () {
     gulp.src(['./wpbooklist-bulkbookupload.php'], {base: './'}).pipe(gulp.dest('../wpbooklist-bulkbookupload_dist/WPBookList-BulkBookUpload-Distribution'));
 });
 
+gulp.task('copyuifile', function () {
+    gulp.src(['./class-admin-books-bulkbookupload-tab-extension-ui.php'], {base: './'}).pipe(gulp.dest('../wpbooklist-bulkbookupload_dist/WPBookList-BulkBookUpload-Distribution'));
+});
+
 gulp.task('zip', function () {
     return gulp.src('../wpbooklist-bulkbookupload_dist/WPBookList-BulkBookUpload-Distribution/**')
         .pipe(zip('wpbooklist-bulkbookupload.zip'))
@@ -141,7 +145,7 @@ gulp.task('default', ['sassFrontendSource', 'sassBackendSource', 'sassPostPagesS
 
 //gulp.task( 'default', [ 'cleanzip' ]);
 
-//gulp.task( 'default', [ 'copyassets', 'copyincludes', 'copyreadme', 'copylang', 'copymainfile' ]);
+//gulp.task( 'default', [ 'copyassets', 'copyincludes', 'copyreadme', 'copylang', 'copymainfile' , 'copyuifile' ]);
 
 //gulp.task( 'default', [ 'zip' ]);
 

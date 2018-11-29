@@ -153,7 +153,7 @@ function wpbooklist_bulkbookupload_action_javascript() {
 						    	titleResponse = titleResponse+" Added<br/><span class='wpbooklist-bulkbookupload-response-span'>'"+response[0]+"'</span><br/>";
 						    	titleResponseDiv.html(titleResponse);
 
-						    	statusDiv.html('<p>Adding <span class="wpbooklist-color-orange-italic">'+totalIsbns+'</span> Books...</p><p>Total Estimated Time: '+estimateTime+'</p><p>Succesfully Added <span class="wpbooklist-color-orange-italic">'+totalAdded+'</span> books!<img id="wpbooklist-smile-icon-1" style="position:relative; top:30px;" src="<?php echo ROOT_IMG_ICONS_URL; ?>happy.svg" /><p>');
+						    	statusDiv.html('<p>Adding <span class="wpbooklist-color-orange-italic">'+totalIsbns+'</span> Books...</p><p>Total Estimated Time: '+estimateTime+'</p><p>Succesfully Added <span class="wpbooklist-color-orange-italic">'+totalAdded+'</span> books!<p>');
 
 						    	var objDiv = document.getElementById("wpbooklist-bulkbookupload-title-response");
 								objDiv.scrollTop = objDiv.scrollHeight;
