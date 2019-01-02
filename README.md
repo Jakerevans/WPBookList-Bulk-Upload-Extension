@@ -1,1 +1,1 @@
-# WPBookList-Bulk-Upload-Extension
+# WPBookList-EBMP
