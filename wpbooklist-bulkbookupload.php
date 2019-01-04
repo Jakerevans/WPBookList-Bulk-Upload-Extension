@@ -11,7 +11,7 @@
  * Plugin Name: WPBookList Bulk-Book Upload Extension
  * Plugin URI: https://www.jakerevans.com
  * Description: A Extension for WPBookList that lets users upload tons of books all at once!
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Jake Evans
  * Text Domain: wpbooklist
  * Author URI: https://www.jakerevans.com
@@ -72,13 +72,18 @@ global $wpdb;
 	define( 'EDD_SL_ITEM_ID_BULKBOOKUPLOAD', 725 );
 
 	// This Extension's Version Number.
-	define( 'WPBOOKLIST_BULKBOOKUPLOAD_VERSION_NUM', '1.0.0' );
+	define( 'WPBOOKLIST_BULKBOOKUPLOAD_VERSION_NUM', '1.0.1' );
 
 	// Root plugin folder directory.
 	define( 'BULKBOOKUPLOAD_ROOT_DIR', plugin_dir_path( __FILE__ ) );
 
-	// Root WordPress Plugin Directory.
-	define( 'BULKBOOKUPLOAD_ROOT_WP_PLUGINS_DIR', str_replace( '/wpbooklist-bulkbookupload', '', plugin_dir_path( __FILE__ ) ) );
+	// Root WordPress Plugin Directory. The If is for taking into account the update process - a temp folder gets created when updating, which temporarily replaces the 'wpbooklist-bulkbookupload' folder.
+	if ( false !== stripos( plugin_dir_path( __FILE__ ) , '/wpbooklist-bulkbookupload' ) ) { 
+		define( 'BULKBOOKUPLOAD_ROOT_WP_PLUGINS_DIR', str_replace( '/wpbooklist-bulkbookupload', '', plugin_dir_path( __FILE__ ) ) );
+	} else {
+		$temp = explode( 'plugins/', plugin_dir_path( __FILE__ ) );
+		define( 'BULKBOOKUPLOAD_ROOT_WP_PLUGINS_DIR', $temp[0] . 'plugins/' );
+	}
 
 	// Root WPBL Dir.
 	if ( ! defined('BULKBOOKUPLOAD_ROOT_WPBL_DIR' ) ) {
